@@ -1,0 +1,36 @@
+#ingenieros-lic{
+	width: 83%;
+	height: 300px;
+	margin-left: 8%;
+	overflow: auto;
+}
+table{
+	font-size: 11px;
+	
+}
+#tbody{
+	overflow-y: auto;
+	height: 300px;
+}
+#especialidades{
+	margin-left: 8%;
+	width: 40%;
+	height: 300px;
+	overflow: auto;
+}
+
+#maestrias{
+	margin-left: 8%;
+	width: 50%;
+	height: 300px;
+	overflow: auto;
+}
+#admin{
+	margin-left: 8%;
+	width: 30%;
+	height: 300px;
+	overflow: auto;
+}
+#contenedor{
+	
+}

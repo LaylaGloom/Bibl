@@ -1,0 +1,52 @@
+paginas de consulta
+
+pagina web de paginacion de consultas
+http://notasweb.com/articulo/php/paginacion-anterior-siguiente-php-mysql.html
+https://www.youtube.com/watch?v=f1y9IZVoau8
+https://code.tutsplus.com/tutorials/how-to-paginate-data-with-php--net-2928
+
+
+anteriores
+
+https://es.stackoverflow.com/questions/29704/habilitar-y-deshabilitar-campos-en-un-formulario-html
+
+grid
+https://desarrolloweb.com/articulos/data-grid-php.html
+
+
+formulario javascript
+http://www.forosdelweb.com/f13/mostrar-formulario-con-javascript-608042/
+
+
+alert y opciones de inputalert
+https://www.w3schools.com/js/js_popup.asp
+
+
+actualizar varios registros a la ves
+https://www.lawebdelprogramador.com/foros/PHP/911489-Actualizar-varios-registros-a-la-vez.html
+https://www.baulphp.com/editar-registros-con-funcion-php-y-mysql-ejemplos/
+
+consulta PDO PHP
+https://es.stackoverflow.com/questions/68150/como-recorrer-consulta-pdo-en-php
+http://www.vidadelprogramador.com/extraer-los-ultimos-registros-de-una-tabla-con-php-pdo-y-mysql/
+http://www.forosdelweb.com/f18/como-contar-registros-usando-pdo-639114/
+
+https://www.w3schools.com/html/tryit.asp?filename=tryhtml_iframe_target
+https://www.w3schools.com/html/html_iframe.asp
+https://mdbootstrap.com/components/bootstrap-iframe/
+
+
+https://www.lawebdelprogramador.com/foros/PHP/1456280-Ejecutar-funcion-de-JavaScript-desde-PHP.html
+
+http://aprendeenlinea.udea.edu.co/lms/moodle/mod/page/view.php?id=47109
+https://desarrollo-geek.net/tutoriales/javascript/javascript-alert-confirm-prompt/
+https://www.anerbarrena.com/mostrar-mensajes-alerta-javascript-5568/
+https://es.stackoverflow.com/questions/125755/ventana-emergente-mensaje-en-php
+http://facturacionweb.site/blog/crud-usando-php-pdo-poo-mvc/
+
+
+tablas y diseño css
+
+https://developer.mozilla.org/es/docs/Trazado_de_una_tabla_HTML_mediante_JavaScript_y_la_Interface_DOM
+/// esta revizar
+http://www.vidamrr.com/2011/10/crear-una-bonita-tabla-usando-divs-y.html
