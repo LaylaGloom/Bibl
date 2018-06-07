@@ -14,6 +14,19 @@ form{
 	font-weight: bold;
 	cursor: pointer;
 }
+.button {
+  background-color: #a39ca3;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 4px;
+  cursor: pointer;
+  border-radius: 12px;
+}
 
 .btn-warning {
   color: #ffffff;
@@ -36,6 +49,7 @@ form{
 }
 div.ext1{
 	font-family:arial, helvetica, sans-serif;
+  font-size: 15px;
 	background:silver;
 	padding:15px;
 	border-radius:8px;
@@ -60,6 +74,35 @@ h1{
 	text-align:center;
 	font-family:arial, helvetica, sans-serif;
 }
+
+.table {
+    border-collapse: collapse;
+    width: 100%
+}
+
+th,td {
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even){background-color: #f2f2f2;}
+
+th{
+  background-color: #9e95ad;
+    color: white;
+}
+
+body {
+    font: 18px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif; /* /21px */
+}
+
+.ejemp h2, .ejemp label {
+  font-family:Georgia, Times, "Times New Roman", serif;
+}
+
+.notifi {
+  font-size: 11px;
+}
+
 
 @media print {
   * {
@@ -125,8 +168,7 @@ h1{
   .label {
     border: 1px solid #000;
   }
-  .table {
-    border-collapse: collapse !important;
+  
   }
   .table-bordered th,
   .table-bordered td {

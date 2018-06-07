@@ -14,6 +14,5 @@
 		static public function desconectar(){//en esta funcion cerramos la conexion
 			self::$con->close();//a qui cerramos la conexion
 		}//fin de funcion
-    }//fin de clase
-    
+	}//fin de clase
 ?>

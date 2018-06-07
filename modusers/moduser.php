@@ -26,12 +26,6 @@ session_start();
 
 require_once '../include/conect.php';
 
-//se evalua si le entrega algo la pagina
-/* (!isset($_GET['screen']))
- { $screen=0;}
-else
- { $pos=(int)$_get['screen'];}*/
-
 try
 {
   $user_id=null;
@@ -59,7 +53,7 @@ catch (Exception $e)
 </script>	
 	</head>
 <body>
-	<h1>CONSULTA Y MODIFICA USUARIO DE SISTEMA</h1>
+	
 <div class="ext1">
   	<h3><u>Seleccione el Usuario a modificar.</u></h3> 
   	<?php if ($sql1): ?>

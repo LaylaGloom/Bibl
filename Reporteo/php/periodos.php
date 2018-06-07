@@ -1,6 +1,9 @@
 <?php 
 session_start();
 $_SESSION['User']='Admin';
+if (isset($_POST['Anio'])) {
+  $_SESSION['Anio']=$_POST['Anio'];
+}
 if(isset($_POST['reportes'])){
     $Meses="";
     $reportes=$_POST['reportes'];

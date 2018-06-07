@@ -12,48 +12,36 @@
  #Modulo de dehabilitacion de usuarios del sistema 
 
 session_start();
- 
+  //evaluacion de inicio de sesion
   if(isset($_SESSION['username']))
-  { 
-    
-  }
-  else
-  {
+  { }else{
    session_destroy();
-   header("location:../index.php");
-  }
-
+   header("location:../index.php");}
 
 require_once '../include/conect.php';
 
 //recibo las variables que se envian desde el metodo get
 if ( ! empty($_GET))
 {
-	$DesId=$_GET['id'];
-	$var1=$_GET['var1'];
+	$DesId=$_GET['id'];  //valor del id que se selecciono
+	$var1=$_GET['var1']; //valor de la accion que se realizara
+	$pant=$_GET['bot'];  //valor del boton que se selecciono
 
-	//se evalua la opcion que envia la tabla 
-	if ($var1==1)
+	if ($pant) //se evalua si tienen valor de algun boton 
+	{ $reg_bot=(15*($pant-1));} //si es verdadero se calcula el numero de renglones 
+
+	if ($var1==1) //se evalua la opcion que envia la tabla 
 	{	
 		echo "<script>
 				if(confirm('Deseas DESHABILITAR al Usuario?')){
 				document.location.href='desuser.php?var1=3&id=$DesId';}
 				else{ 
 				alert('Operacion Cancelada');}</script>";
-	}
-	if ($var1==2)
-	{
-		//static $VarFil=$DesId;
-		echo "<script>if(confirm('Deseas ELIMINAR al Usuario?')){
-				document.location.href='desuser.php?var1=4&id=$DesId';}
-				else{ 
-				alert('Operacion Cancelada');}</script>";
-	}
-	if ($var1==3)
+	}	
+	if ($var1==3)//se evalua la accion de deshabilitar
 	{
 		try	{
-		$Estatus=3;
-		//parte para la actualizacion del registro
+		$Estatus=3; //parte para la actualizacion del registro
 		$desh = $conn->prepare("UPDATE user SET status_People_id = ? WHERE user . id =?");
 		$desh->bindParam(1,$Estatus);
 		$desh->bindParam(2,$DesId);
@@ -63,26 +51,27 @@ if ( ! empty($_GET))
         echo "<br>Ha Fallado algo: " . $e->getMessage();}
 		echo "<script> alert('Usuario DESHABILITADO con Exito'); </script>";
 	}
-	if ($var1==4)
-	{
-		try
-		{
-		$elim=$conn->prepare("DELETE FROM user WHERE id=?");
-		$elim->bindParam(1,$DesId);
-		$elim->execute();}
-		catch (Exception $e) 
-		{//Si encuentra alguna excepcion muestra el error que produjo
-        echo "<br>Ha Fallado algo: " . $e->getMessage();}
-		echo "<script> alert('Usuario ELIMINADO con Exito'); </script>";
-	}
 }
 try
 {
-  $user_id=null;
+  //se entiende que si no se recibe datos es el inicio 
+	$reg_pag=50; //Se inicializa la variable, numero de registros que se desplegaran por pagina
+	$reg_bot=0; //Se inicializa la variable, numero inicial del boton 
+  //consulta el numero de registros
+  $login = $conn->prepare("SELECT * FROM user ORDER BY id DESC LIMIT 1");
+  $login->execute();
+  $row=$login->fetch();
+
+  //inicio la consulta con los valores de el salto de filas
+  $sql1=$conn->prepare("SELECT * FROM user ORDER BY id ASC LIMIT $reg_bot,$reg_pag");
+  $sql1->execute();
+  $resultado=$sql1->fetchAll();
+
+  /*$user_id=null;
   $sql1="select * from user";
   $sql1=$conn->prepare($sql1);
   $sql1->execute();
-  $resultado=$sql1->fetchAll();
+  $resultado=$sql1->fetchAll();*/
 }
 catch (Exception $e)
 {//Si encuentra alguna excepcion muestra el error que produjo
@@ -99,20 +88,20 @@ catch (Exception $e)
 </script>
 	</head>
 <body>
-	<h1>DESHABILITAR O ELLIMINAR USUARIO</h1>
+	
   <div class="ext1">
 	<h3><u>Seleccione la opcion deseada</u></h3>	 
 	<?php if ($sql1): ?>
 	<table border="1" width="100%" class="table table-bordered table-hover">
 	<thead>
-		<th width="3%">ID</th>
+		<th width="5%">ID</th>
 		<th width="15%">Login</th>
-		<th width="20%">Nombres</th>
-		<th width="20%">Apellidos</th>
-		<th width="22%">Email</th>
+		<th width="21%">Nombres</th>
+		<th width="22%">Apellidos</th>
+		<th width="24%">Email</th>
 		<th width="6%">Tip User</th>
 		<th width="7%">Dehabilitar</th>
-		<th width="7%">Eliminar</th>
+		
 	</thead>
 	<?php foreach ($resultado as $row){ ?>
 	<tr>
@@ -123,7 +112,7 @@ catch (Exception $e)
 		<td><center><?php echo $row["email"];?></center></td>
 		<td><center><?php echo $row["status_People_id"];?></center></td>
 		<td><center><a href="desuser.php?var1=1&id=<?php echo$row["id"];?>">Deshabilitar</a></center></td>
-		<td><center><a href="desuser.php?var1=2&id=<?php echo$row["id"];?>">Eliminar</a></center></td>
+		
 	</tr>
     <?php }?>
     </table>

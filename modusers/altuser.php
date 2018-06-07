@@ -3,7 +3,7 @@
  #Copyright: (c) 2018 Universidad Politecnica de Pachuca - Todos los derechos Reservados.
  #Realizado por el Departemento de Tecnologia de la Informacion y Telecomunicaciones
  #Fecha de Inicio: 14/03/2018
- #Fecha de Modificación: 28/03/2018
+ #Fecha de Modificación: 28/05/2018
  #Version 1.3
  #Proyecto y Documentacion a cargo del L.S.C. Juvencio Francisco Moreno Vargas
  #Alumnos de Servicio Social que apoyan en el desarrollo y Programacion de Modulos Torniquete
@@ -14,14 +14,9 @@
 session_start();
  
   if(isset($_SESSION['username']))
-  { 
-    
-  }
-  else
-  {
+  { }else{
    session_destroy();
-   header("location:../index.php");
-  }
+   header("location:../index.php");}
 
 $myestatus="";
 
@@ -37,15 +32,14 @@ if ( ! empty($_POST))
   $myestatus=$_POST['r1'];
 
 switch ($myestatus) 
-	{
-	case "Adm":
+	{ case "Adm":
 		$Estatus=1;
 		break;
-	case "Use":
+	  case "Use":
 		$Estatus=2;
-		break;
-	}
-  	//se realiza la consulta a la Base de Datos del login o Nombre de Usuario
+		break;}
+
+  	//se realiza la consulta a la Base de Datos del login de Usuario para saber si ya esta registrado
     $login = $conn->prepare("SELECT * FROM user WHERE username=?");
     $login->bindParam(1,$myloguser); //le decimos a la consulta cuál es el parámetro a pasar 
     $login->execute(); //ejecutamos la consulta
@@ -55,9 +49,25 @@ switch ($myestatus)
   		echo '<script language="javascript" type="text/javascript"> alert("Usuario ya Registrado");
   			</script>';
   	}
-  	else
-  	{//parte para ingresar el registro
-//condicion que se envia al usuario para confirmar el registro o cancelarlo
+  	//se realiza la consulta a la Base de Datos de correo de Usuario para saber si ya esta registrado
+  	$login = $conn->prepare("SELECT * FROM user WHERE email=?");
+    $login->bindParam(1,$mycoruser); //le decimos a la consulta cuál es el parámetro a pasar 
+    $login->execute(); //ejecutamos la consulta
+    //evaluamos si encuentra filas (0 filas-> no hay reg, 1 fila-> si hay reg)
+  	if($login->rowCount()==1)
+  	{   //se manda una alerta a la pagina indicando que el usuario ya existe
+  		echo '<script language="javascript" type="text/javascript"> alert("Correo ya Registrado");
+  			</script>';
+  	}
+  	echo "<br>la clave sin encrptar es: ".$myclvuser;
+  	//se invoca el archivo donde se encuentra la clase para encriptar y desencriptar
+  	include 'classE.php';
+  	//se llama la funcion encriptar de la clase EncDesc
+  	$myclvuser=EncDesc::encryption($myclvuser);
+  	echo "<br>la varibale encriptada es: ".$myclvuser;
+
+  	//condicion que se envia al usuario para confirmar el registro o cancelarlo
+  	
   	try { //elemento try que permite evaluar el registro
   		$Id_user=NULL; //variable null para registrar el id en automatico
   		
@@ -78,7 +88,7 @@ switch ($myestatus)
   		
   		echo '<script language="javascript" type="text/javascript"> alert("Usuario Registrado con Exito");
   			</script>';
-  	}//cierre del if que evalua si hay o no filas  
+  	
 } //cierre de if que indica si se mandan los datos del formulario
 
 ?>
@@ -123,35 +133,36 @@ switch ($myestatus)
 		if (valclv1=="Solo Texto y Numeros")
 			{	alert("Capture Correctamente la clave: Intente Nuevamente");
 			return false;}
-
 		if (email=="ejemplo@upp.edu.mx")
 			{	alert("Capture Correctamente el Correo: Intente Nuevamente");
 			return false;}
+
+		//if(this.value=='ejemplo@upp.edu.mx') this.value=''" onblur="if(this.value=='') this.value='ejemplo@hotmail.com'
 	}
 </script>
 	</head>
 <body>
-	<h1>FORMULARIO DE ALTA DE USUARIO</h1>
+	
 	<form name='submit' id='submit' method='post' action='altuser.php' target='_self' enctype="multipart/form-data" onsubmit="return FunEval()"> 
 	<h3><u>Capture los datos del nuevo Usuario del Sitema</u></h3>
 <!--inicio de los Datos -->
 	<br>Nombre:   
-	<input type='text' name='Nomuser' id='Nomuser' autofocus value="Nombre Completo" required/> 
+	<input type='text' name='Nomuser' id='Nomuser' autofocus placeholder="Nombre Completo" required/> 
 	<br>
 	<br>Apellidos: 
-	<input type='text' name='Apeuser' id='Apeuser' value="Apellido Completo" required/>
+	<input type='text' name='Apeuser' id='Apeuser' placeholder="Apellido Completo" required/>
 	<br>
 	<br>Nombre de Usuario: 
-	<input type='text' name='Username' id='Username' value="Solo Texto y Numeros" required/> 
+	<input type='text' name='Username' id='Username' placeholder="Solo Texto y Numeros" required/> 
 	<br>
 	<br>Clave de Acceso:
-	<input type="Password" name='Pasuser' id='Pasuser' value="Solo Texto y Numeros" required/>
+	<input type="Password" name='Pasuser' id='Pasuser' placeholder="Solo Texto y Numeros" required/>
 	<br>
 	<br>Ratificar Clave de Acceso:
-	<input type="Password" name='Repuser' id='Repuser' value="Solo Texto y Numeros" required/>
+	<input type="Password" name='Repuser' id='Repuser' placeholder="Solo Texto y Numeros" required/>
 	<br>
 	<br>E-MAIL:
-	<input type='text' name='email' id='email' pattern="^[a-zA-Z0-9.!#$%'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required	value="ejemplo@upp.edu.mx" onclick="if(this.value=='ejemplo@upp.edu.mx') this.value=''" onblur="if(this.value=='') this.value='ejemplo@hotmail.com'">
+	<input type='text' name='email' id='email' pattern="^[a-zA-Z0-9.!#$%'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="ejemplo@upp.edu.mx" onclick="return FunEval()" required >
 	<br><br>Tipo de cuenta:
 	
 	<input type="radio" name="r1" id="r1" value="Adm" required>Administrador

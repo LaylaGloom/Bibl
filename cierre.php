@@ -12,6 +12,7 @@ try
     else
     {
       echo "<script> alert('No hay sesion Iniciada'); </script>";
+      header("location:index.php");
     }  
 }//termina la evaluacion de la sesion
 

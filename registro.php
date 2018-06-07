@@ -76,10 +76,10 @@ catch (Exception $e) {
 <div class="navbar navbar-inverse navbar-fixed-top">
 <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" href="http://upp.edu.mx>
       <span class="icon icon-shield" style="font-size:30px; color:#3498db;"></span>
       </button>
-      <a class="navbar-brand hidden-xs hidden-sm" href="index.php"><span class="icon icon-shield" style="font-size:18px; color:#3498db;"></span></a>
+      <a class="navbar-brand hidden-xs hidden-sm" href="index.php"><span class="icon icon-shield" style="font-size:18px; color:#ab68a2;"></span></a>
     </div>
       
   <div class="navbar-collapse collapse">
@@ -91,7 +91,7 @@ catch (Exception $e) {
 <?php if ($_SESSION['tipo']=="Administrador"){?>
 <li><a href="modusers/index.php" target="default" class="smoothScroll">Control Usuarios </a></li>
 <li><a href="modingre/index.php" target="default" class="smoothScroll">Control de Ingreso</a></li>
-<li><a href="Reporteo/admin.php" target="default" class="smoothScroll">Estaditicas</a></li>
+<li><a href="Reporteo/index.php" target="default" class="smoothScroll">Estaditicas</a></li>
 <?php } ?>
 <li><a class="smoothScroll">Usu: <?php echo "".$_SESSION['username']; echo " Tip: ".$_SESSION['tipo'];?></a></li>
 <li><a href="cierre.php" class="smoothScroll"> Cerrar Sesion</a></li>
@@ -104,7 +104,7 @@ catch (Exception $e) {
     <br>
     <br>
 <!-- ==== HEADERWRAP ==== -->
-<center><iframe name="default" src="default.html" width="1240" height="610" frameborder="1">Tu Navegador no soporta Iframes</iframe></center>
+<center><iframe name="default" src="default.html" width="1240" height="710" frameborder="1">Tu Navegador no soporta Iframes</iframe></center>
 
     
     <div id="footerwrap">

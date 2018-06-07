@@ -53,7 +53,7 @@
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon icon-shield" style="font-size:30px; color:#3498db;"></span>
           </button>
-          <a class="navbar-brand hidden-xs hidden-sm" href="http://upp.edu.mx"><span class="icon icon-shield" style="font-size:18px; color:#3498db;"></span></a>
+          <a class="navbar-brand hidden-xs hidden-sm" href="http://upp.edu.mx"><span class="icon icon-shield" style="font-size:18px; color:#ab68a2;"></span></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -71,8 +71,8 @@
 	    <div id="headerwrap" id="home" name="home">
 			<header class="clearfix">
 	  		 		<h1><span class="icon icon-cube"></span></h1>
-	  		 		<p>Entorno de Administración y Control.</p>
-	  		 		<p>Biblioteca UPPachuca.</p>
+	  		 		<p>ENTORNO DE CONTROL.</p>
+	  		 		<p>CENTRO DE ADMINISTRACIÓN BIBLIOGRÁFICA.</p>
 	  		</header>
 
 	    </div><!-- /headerwrap -->
@@ -80,10 +80,7 @@
 		<!-- ==== SECTION DIVIDER6 ==== -->
 		<section class="section-divider textdivider divider6 ">
 			<div class="container">
-				<p><b><h1 style="color: #f2f0f2;"> Elementos de Biblioteca </h1></b></p>
-				
-				<p><b><h1 style="color: #f2f0f2;"> Redes Sociaes </h1></b></p>
-				<p><a class="icon icon-twitter" href="#"></a> | <a class="icon icon-facebook" href="#"></a></p>
+			<br><br><br><br>	
 			</div><!-- container -->
 		</section><!-- section -->
 		

@@ -1,9 +1,9 @@
 form{
 	font-family:arial, helvetica, sans-serif;
 	background:silver;
-	padding:15px;
+	padding:12px;
 	border-radius:10px;
-	Width: 700px;
+	width: 700px;
 	left: 50%;
 	margin: 0 auto;
 }
@@ -14,7 +14,32 @@ form{
 	font-weight: bold;
 	cursor: pointer;
 }
-
+.button {
+  background-color: #a39ca3;
+  border: none;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 0px 0px;
+  cursor: pointer;
+  border-radius: 13px;
+}
+.button1 {
+  background-color: #a39ca3;
+  border: none;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  margin: 2px 4px;
+  cursor: pointer;
+  border-radius: 13px;
+}
 .btn-warning {
   color: #ffffff;
   background-color: #DA81F5; 
@@ -36,13 +61,33 @@ form{
 }
 div.ext1{
 	font-family:arial, helvetica, sans-serif;
+  font-size: 13px;
 	background:silver;
-	padding:15px;
+	padding:12px;
+  float: none;
 	border-radius:8px;
-	Width: 1030px;
+	width: 1030px;
 	left: 50%;
 	margin: 0 auto;
 }
+div.ext2{
+  font-family:arial, helvetica, sans-serif;
+  font-size: 12px;
+  background:silver;
+  padding:3px;
+  border-radius:20px;
+  list-style-position: inside;
+
+  margin-left: 50%;
+  margin-top: 120%;
+  width: 650px;
+  height: 60px;
+  margin-left: 240px;
+  margin-top: 10px;
+
+  /*margin: 20px auto;*/
+}
+
 div.der{
   text-align: right
 }
@@ -60,6 +105,35 @@ h1{
 	text-align:center;
 	font-family:arial, helvetica, sans-serif;
 }
+
+.table {
+    border-collapse: collapse;
+    width: 100%
+}
+
+th,td {
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even){background-color: #f2f2f2;}
+
+th{
+  background-color: #9e95ad;
+    color: white;
+}
+
+body {
+    font: 14px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif; /* /21px */
+}
+
+.ejemp h2, .ejemp label {
+  font-family:Georgia, Times, "Times New Roman", serif;
+}
+
+.notifi {
+  font-size: 11px;
+}
+
 
 @media print {
   * {
@@ -125,8 +199,7 @@ h1{
   .label {
     border: 1px solid #000;
   }
-  .table {
-    border-collapse: collapse !important;
+  
   }
   .table-bordered th,
   .table-bordered td {

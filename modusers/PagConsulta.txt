@@ -1,3 +1,7 @@
+videos eric python
+https://www.youtube.com/watch?v=MHgEjg-eUSA
+https://www.youtube.com/watch?v=wvCbLVPSDqg
+
 paginas de consulta
 
 pagina web de paginacion de consultas
@@ -10,9 +14,9 @@ anteriores
 
 https://es.stackoverflow.com/questions/29704/habilitar-y-deshabilitar-campos-en-un-formulario-html
 
-grid
-https://desarrolloweb.com/articulos/data-grid-php.html
 
+formulario HTML5 y css
+https://webdesign.tutsplus.com/es/tutorials/bring-your-forms-up-to-date-with-css3-and-html5-validation--webdesign-4738
 
 formulario javascript
 http://www.forosdelweb.com/f13/mostrar-formulario-con-javascript-608042/

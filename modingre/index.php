@@ -129,7 +129,7 @@ h1 {
     <li><img src="img/Alta.png"><a href="altuser.php" target="UserPanel">Alta de Usuarios</a></li>
     <li><img src="img/Desh.png"><a href="desuser.php" target="UserPanel">Deshabilitar Usuario</a></li>
     <li><img src="img/Modi.png"><a href="moduser.php" target="UserPanel">Modificacion de Usuario</a></li>
-    <li><img src="img/Cons.png"><a href="conuser.php" target="UserPanel">Consulta de Usuario</a></li>
+    <li><img src="img/Cons.png"><a href="conusers.php" target="UserPanel">Consulta de Usuario</a></li>
   </ul>
 </center>
 </div>
@@ -139,7 +139,7 @@ h1 {
 <div id="contenido">
   <center>
   	
-    <iframe name="UserPanel" src="default.html" width="1140" height="520" frameborder="1">Tu Navegador no soporta Iframes</iframe>
+    <iframe name="UserPanel" src="default.html" width="1140" height="590" frameborder="1">Tu Navegador no soporta Iframes</iframe>
   <!--
   <p><a href="http://upp.edu.mx" target="_blank"><img src="img/LogoUPP.png" alt="campusMVP" style="border-width: 0px"/></a></p>
   <h1>Control de Usuarios</h1>

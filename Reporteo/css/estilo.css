@@ -1,0 +1,54 @@
+#ingenieros-lic{
+	width: 83%;
+	height: 300px;
+	margin-left: 8%;
+	overflow: auto;
+}
+table{
+	font-size: 11px;
+
+}
+#tbody{
+	overflow-y: auto;
+	height: 300px;
+}
+#especialidades{
+	top: 0px;
+	float: left;
+	margin-left: 8%;
+	width: 40%;
+	height: 300px;
+	overflow: auto;
+}
+
+#maestrias{
+	margin-left: 8%;
+	width: 50%;
+	height: 300px;
+	overflow: auto;
+}
+#admin{
+	top: 0px;
+	float: left;
+	margin-left: 8%;
+	width: 30%;
+	height: 300px;
+	overflow: auto;
+	right: 5%;
+}
+#contenedor{
+	width: 80%;
+	padding: 0px;
+	display: block;
+	height: 300px;
+}
+
+#datosGrafica{
+	position: relative;
+	width: 50%;
+	margin-left: 30%;
+}
+#contenedorGrafica{
+	width: 80%;
+	margin-left: 10%;
+}

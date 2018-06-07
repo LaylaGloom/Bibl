@@ -3,7 +3,7 @@
  #Copyright: (c) 2018 Universidad Politecnica de Pachuca - Todos los derechos Reservados.
  #Realizado por el Departemento de Tecnologia de la Informacion y Telecomunicaciones
  #Fecha de Inicio: 14/03/2018
- #Fecha de Modificación: 28/03/2018
+ #Fecha de Modificación: 28/05/2018
  #Version 1.3
  #Proyecto y Documentacion a cargo del L.S.C. Juvencio Francisco Moreno Vargas
  #Alumnos de Servicio Social que apoyan en el desarrollo y Programacion de Modulos Torniquete
@@ -60,24 +60,36 @@ if (! empty($_POST))
   		$myloguser=$_POST['Username'];
   		$myclvuser=$_POST['Pasuser'];
   		$myrlvuser=$_POST['Repuser'];
+  		$myestatus=$_POST['r1'];
   		$mycoruser=$_POST['email'];
   		$myid=$_POST['id'];
-  		
-  		try	{
-		$Actu = $conn->prepare("UPDATE user SET name=?,lastname=?,username=?,email=?,password=? WHERE user . id =?");
+
+  		switch ($myestatus) 
+		{	case "Adm":
+				$myEstatus=1;
+				break;
+			case "Use":
+				$myEstatus=2;
+				break;}
+		//Encriptar el password que se captura, se invoca el archivo,se tiene la clase y la funcion
+                include 'classE.php';
+                //se llama la funcion encriptar de la clase EncDesc
+                $myclvuser=EncDesc::encryption($myclvuser);
+ 		try	{
+  		$Actu = $conn->prepare("UPDATE user SET name=?,lastname=?,username=?,email=?,password=?, status_People_id=? WHERE user . id =?");
 		$Actu->bindParam(1,$mynomuser);
 		$Actu->bindParam(2,$myapeuser);
 		$Actu->bindParam(3,$myloguser);
 		$Actu->bindParam(4,$mycoruser);
 		$Actu->bindParam(5,$myclvuser);
-		$Actu->bindParam(6,$myid);
+		$Actu->bindParam(6,$myEstatus);
+		$Actu->bindParam(7,$myid);
 		$Actu->execute();}
 		
 		catch (Exception $e)
 		{//Si encuentra alguna excepcion muestra el error que produjo
   		echo "<br>Ha Fallado algo: " . $e->getMessage();}
   		echo "<script> alert('Los datos del Usuario se han MODIFICADO con Exito'); </script>";
-
 }
 ?>
 <!doctype html>
@@ -113,9 +125,9 @@ if (! empty($_POST))
 </script>
 	</head>
 <body>
-	<h1>MODIFICA USUARIO</h1>
+	
 	<form name='formulario' id='formulario' method='post' action='conuser.php' target='_self' enctype="multipart/form-data" > 
-	<h3><u>Capture los datos a modificar del Usuario del Sitema</u></h3>
+	<h3><u>Modifique los datos.</u></h3>
 	
 <!--inicio de los Datos -->
 	Numero de Registro:
@@ -135,6 +147,10 @@ if (! empty($_POST))
 	<br>
 	<br>Confirme la clave de Acceso:
 	<input type="text" name='Repuser' id='Repuser' value="<?php echo $row["password"];?>">
+	<br>
+	<br>Tipo de Cuenta.
+	<input type="radio" name="r1" id="r1" value="Adm" required>Administrador
+	<input type="radio" name="r1" id="r1" value="Use" required>Usuario
 	<br>
 	<br>E-MAIL:
 	<input type='text' name='email' id='email' pattern="^[a-zA-Z0-9.!#$%'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required	value="<?php echo $row["email"];?>" onclick="if(this.value=='ejemplo@hotmail.com') this.value=''" onblur="if(this.value=='') this.value='ejemplo@hotmail.com'">
